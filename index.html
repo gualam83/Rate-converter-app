@@ -4,30 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
-    <title>Convertir tasas</title>
+    <title>Rate converter</title>
 </head>
 <body>
     <header>
         <h1>Convertidor de tasas</h1>
     </header>
-    <section id="numeros">
+    <section id="rate">
         <h2>Tasa Efectiva Anual</h2>
-        <input type="text" id="numero1" placeholder="0">
+        <input type="text" id="annualRate" placeholder="0">
         <h2>Tasa Nominal Anual</h2>
-        <input type="text" id="numero2" placeholder="0">
+        <input type="text" id="nominalRate" placeholder="0">
         <h2>Tasa nominal Mensual</h2>
-        <input type="text" id="numero3" placeholder="0">
-        <button id="calcular">Calcular</button>        
+        <input type="text" id="monthRate" placeholder="0">
+        <button id="calculate">Calcular</button>        
     </section>
     
-    <section id="resultado">
+    <section id="result">
         <h2>Tasa Efectiva Anual</h2>
-        <div id="resNumero1"></div>
+        <div id="resultAnnual"></div>
         <h2>Tasa Nominal Anual</h2>
-        <div id="resNumero2"></div>
+        <div id="resultNominal"></div>
         <h2>Tasa nominal Mensual</h2>
-        <div id="resNumero3"></div> 
-        <button id="nuevo">Nuevo</button> 
+        <div id="resultMonth"></div> 
+        <button id="clear">Nuevo</button> 
     </section>
 
     <script src="/js/script.js"></script>

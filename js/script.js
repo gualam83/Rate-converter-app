@@ -1,79 +1,83 @@
-window.addEventListener('load', ocultarResul());
-botonBorrar = document.getElementById('nuevo');
-botonCalcular = document.getElementById('calcular');
+window.addEventListener('load', hideResult());
+buttonClear = document.getElementById('clear');
+buttonCalculate = document.getElementById('calculate');
 
-botonCalcular.addEventListener('click', function () {
-    calculando();
-    calculando2();
-    calculando3();
-    ocultarNum();
-    mostrarResul();
+buttonCalculate.addEventListener('click', function () {
+    calculateAnnual();
+    calculateNominal();
+    calculateMonth();
+    hideRate();
+    showResult();
 })
 
-botonBorrar.addEventListener ('click', function () {       
-    location.reload();    
+buttonClear.addEventListener ('click', function () {       
+    document.getElementById("annualRate").value = '';   
+    document.getElementById("nominalRate").value = ''; 
+    document.getElementById("monthRate").value = ''; 
+    hideResult();
+    showRate();
 })
 
-function calculando(valor1) {
-    numeroUno = document.getElementById('numero1').value;
-    numeroDos = document.getElementById('numero2').value;
-    numeroTres = document.getElementById('numero3').value;
+function calculateAnnual() {
+    annualRate = document.getElementById('annualRate').value;
+    nominalRate = document.getElementById('nominalRate').value;
+    monthRate = document.getElementById('monthRate').value;
 
-    if (numeroUno > 0) {
-        document.getElementById('resNumero1').innerHTML = (numeroUno * 1).toFixed(2);;
-    } else if (numeroUno == 0 && numeroDos == 0) {
-        var valor1 = (((1 + (((parseFloat(numeroTres) * 12))/100) / 12)** 12 - 1) * 100).toFixed(2);
-        document.getElementById('resNumero1').innerHTML = valor1;
-    } else if (numeroUno == 0 && numeroTres == 0) {
-        var valor1 = (((1 + ((parseFloat(numeroDos))/100) / 12)** 12 - 1) * 100).toFixed(2);
-        document.getElementById('resNumero1').innerHTML = valor1;
+    if (annualRate > 0) {
+        document.getElementById('resultAnnual').innerHTML = (annualRate * 1).toFixed(2);;
+    } else if (annualRate == 0 && nominalRate == 0) {
+        let annual = (((1 + (((parseFloat(monthRate) * 12))/100) / 12)** 12 - 1) * 100).toFixed(2);
+        document.getElementById('resultAnnual').innerHTML = annual;
+    } else if (annualRate == 0 && monthRate == 0) {
+        let annual = (((1 + ((parseFloat(nominalRate))/100) / 12)** 12 - 1) * 100).toFixed(2);
+        document.getElementById('resultAnnual').innerHTML = annual;
     }
 }
 
-function calculando2(valor2) {
-    numeroUno = document.getElementById('numero1').value;
-    numeroDos = document.getElementById('numero2').value;
-    numeroTres = document.getElementById('numero3').value;
+function calculateNominal() {
+    annualRate = document.getElementById('annualRate').value;
+    nominalRate = document.getElementById('nominalRate').value;
+    monthRate = document.getElementById('monthRate').value;
 
-    if (numeroDos > 0) {
-        document.getElementById('resNumero2').innerHTML = (numeroDos * 1).toFixed(2);;
-    } else if (numeroDos == 0 && numeroTres == 0) {
-        var valor2 = ((((1 + ((parseFloat(numeroUno))/100))**(1/12)-1)*12) * 100).toFixed(2);
-        document.getElementById('resNumero2').innerHTML = valor2;
-    } else if (numeroDos == 0 && numeroUno == 0) {
-        var valor2 = (parseFloat(numeroTres) * 12).toFixed(2);
-        document.getElementById('resNumero2').innerHTML = valor2;
+    if (nominalRate > 0) {
+        document.getElementById('resultNominal').innerHTML = (nominalRate * 1).toFixed(2);;
+    } else if (nominalRate == 0 && monthRate == 0) {
+        let nominal = ((((1 + ((parseFloat(annualRate))/100))**(1/12)-1)*12) * 100).toFixed(2);
+        document.getElementById('resultNominal').innerHTML = nominal;
+    } else if (nominalRate == 0 && annualRate == 0) {
+        let nominal = (parseFloat(monthRate) * 12).toFixed(2);
+        document.getElementById('resultNominal').innerHTML = nominal;
     }
 }
 
-function calculando3(valor3) {
-    numeroUno = document.getElementById('numero1').value;
-    numeroDos = document.getElementById('numero2').value;
-    numeroTres = document.getElementById('numero3').value;
+function calculateMonth() {
+    annualRate = document.getElementById('annualRate').value;
+    nominalRate = document.getElementById('nominalRate').value;
+    monthRate = document.getElementById('monthRate').value;
 
-    if (numeroTres > 0) {
-        document.getElementById('resNumero3').innerHTML = (numeroTres * 1).toFixed(2);
-    } else if (numeroTres == 0 && numeroUno == 0) {
-        var valor3 = (parseFloat(numeroDos) / 12).toFixed(2);
-        document.getElementById('resNumero3').innerHTML = valor3;
-    } else if (numeroTres == 0 && numeroDos == 0) {
-        var valor3 = (((((1 + ((parseFloat(numeroUno))/100))**(1/12)-1)*12) * 100) / 12).toFixed(2);
-        document.getElementById('resNumero3').innerHTML = valor3;
+    if (monthRate > 0) {
+        document.getElementById('resultMonth').innerHTML = (monthRate * 1).toFixed(2);
+    } else if (monthRate == 0 && annualRate == 0) {
+        let month = (parseFloat(nominalRate) / 12).toFixed(2);
+        document.getElementById('resultMonth').innerHTML = month;
+    } else if (monthRate == 0 && nominalRate == 0) {
+        let month = (((((1 + ((parseFloat(annualRate))/100))**(1/12)-1)*12) * 100) / 12).toFixed(2);
+        document.getElementById('resultMonth').innerHTML = month;
     }
 }
 
-function ocultarNum() {
-    document.getElementById('numeros').style.display = 'none';
+function hideRate() {
+    document.getElementById('rate').style.display = 'none';
 }
-function mostrarNum() {
-    document.getElementById('numeros').style.display = 'flex';
-}
-
-function ocultarResul() {
-   document.getElementById ('resultado').style.display = 'none';
+function showRate() {
+    document.getElementById('rate').style.display = 'flex';
 }
 
-function mostrarResul() {
-    document.getElementById('resultado').style.display = 'flex';
+function hideResult() {
+   document.getElementById ('result').style.display = 'none';
+}
+
+function showResult() {
+    document.getElementById('result').style.display = 'flex';
 }
 
