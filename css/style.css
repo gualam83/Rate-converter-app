@@ -35,6 +35,7 @@ section input{
     padding: 5px;
     font-family: Helvetica, sans-serif;
     font-size: 18px;
+    min-height: 31px
 }
 section div{
     background-color: rgb(236, 152, 17);
