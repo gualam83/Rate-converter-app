@@ -14,10 +14,17 @@ h2{
     margin: 0;
     margin-top: 10px;
 }
-button{
+
+.containerPage{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.buttonRate{
     margin: 20px;
 }
-section{
+
+.sectionRate{
     margin: 0 auto;
     padding: 0;
     display: flex;
@@ -25,7 +32,8 @@ section{
     max-width: 250px;
     justify-content: center;
 }
-section input{
+.sectionRate input{
+    
     background-color: rgb(236, 152, 17);
     text-align: center;
     border: none;
@@ -37,7 +45,7 @@ section input{
     font-size: 18px;
     min-height: 31px
 }
-section div{
+.sectionRate div{
     background-color: rgb(236, 152, 17);
     text-align: center;
     border: none;
@@ -53,4 +61,41 @@ section div{
 }
 #result{
     background-color: bisque;
+}
+
+
+/* calculator */
+
+.container{
+    display: flex;
+    flex-wrap: wrap;  
+    justify-content: center;  
+}
+.box{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 300px;
+    justify-content: center;    
+}
+.buttonCalc{
+    width: 75px;
+    height: 75px;
+    background-color: rgb(172, 227, 231);
+    border-radius: 5px;
+    font-size: 20px;
+    border-color: rgb(241, 240, 235);
+    cursor: pointer;
+}
+
+
+#resultado{
+    width: 100%;
+    height: 25px;
+    text-align: right;
+    font-size: 25px; 
+    padding: 10px;
+    border: solid rgb(95, 94, 94);
+    border-width: 20px;
+       
+    
 }
