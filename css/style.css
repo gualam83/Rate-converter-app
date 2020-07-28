@@ -18,6 +18,7 @@ h2{
 .containerPage{
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
 .buttonRate{
